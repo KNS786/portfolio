@@ -17,7 +17,7 @@ const AboutInfo = () => {
             </div>
             <div className={`text-[20px] ${cambay.className}`}>
               <div className="mb-6 xl:max-w-[770px]">
-              "I've always been fascinated by the intersection of technology and creativity. From a young age, I was captivated by the endless possibilities that coding offers. My journey into software engineering began with a simple desire to innovate and build impactful digital solutions. I strive to push the boundaries with each project, blending functionality with creativity to deliver seamless user experiences."
+              {"I've always been fascinated by the intersection of technology and creativity. From a young age, I was captivated by the endless possibilities that coding offers. My journey into software engineering began with a simple desire to innovate and build impactful digital solutions. I strive to push the boundaries with each project, blending functionality with creativity to deliver seamless user experiences."}
               </div>
               <div>
                 My work is more than just coding; it`s about building
