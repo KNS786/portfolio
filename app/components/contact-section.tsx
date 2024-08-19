@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { cambay, leckerliOne, montserrat } from '../utils/fonts';
 import { Icon } from '@iconify/react';
@@ -7,8 +8,16 @@ import github from "../assets/about-section/github.png";
 import hackerrank from "../assets/about-section/hackerrank.svg";
 import instagram from '../assets/about-section/instagram.svg';
 import linkedin from '../assets/about-section/linkedin.svg';
+import { ValidationError, useForm } from '@formspree/react';
 
 export const ContactSection = () => {
+  const [state, handleSubmit] = useForm("movanqrv");
+  const [input, setInput] = React.useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+
   const SocialMediaData = [
     {
       image: "bi:github",
@@ -31,6 +40,20 @@ export const ContactSection = () => {
       url: 'https://www.instagram.com/navani_2byte',
     },
   ];
+
+  const [time,setTime] = React.useState('0');
+
+  const getTimeFormated = () => {
+    const time = new Date();
+    const formatedTime = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+    setTime(formatedTime)
+  }
+
+
+  React.useEffect(() => {
+    const t = setInterval(() => getTimeFormated(), 1000);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <div className="w-full" id="contacts">
@@ -57,7 +80,7 @@ export const ContactSection = () => {
             <span
               className={`${montserrat.className} text-[32px] font-semibold`}
             >
-              6:54 PM
+              {time}
             </span>
           </div>
           <div className="text-xl text-primary"><Link href='navanik64@gmail.com'/>navanik64@gmail.com</div>
@@ -87,21 +110,58 @@ export const ContactSection = () => {
           </div>
           <div className="flex gap-10 text-grey-400 ">
             <input
+              id="name"
+              type="text"
+              name="name"
+              value={input.name}
+              onChange={(e) => {
+                setInput({
+                  ...input,
+                  name: e.target.value
+                })
+              }}
               className=" placeholder:text-grey-400 bg-grey-500 rounded-[28px] lg:h-10 h-14 w-[50%] px-5"
               placeholder="Your Name"
             />
+            <div className='flex flex-col items-center'>
             <input
-              className="placeholder:text-grey-400 bg-grey-500 rounded-[28px] lg:h-10 h-14 w-[50%] px-5"
+              id="email"
+              type="email"
+              name="email"
+              value={input.email}
+              onChange={(e) => {
+                setInput({
+                  ...input,
+                  email: e.target.value
+                })
+              }}
+              className="placeholder:text-grey-400 bg-grey-500 rounded-[28px] lg:h-10 h-14 w-full px-5"
               placeholder="Your Email Address"
             />
+            {state.errors?.getFieldErrors("email") && <span style={{ color: "red"}}>Invalid email address</span>}
+            </div>
           </div>
           <textarea
+            id="message"
+            name="message"
+            value={input.message}
+            onChange={(e) => {
+              setInput({
+                ...input,
+                message: e.target.value
+              })
+            }}
             className="placeholder:text-grey-400 bg-grey-500 border-0 rounded-[28px] lg:h-24 h-32 w-full p-5"
             placeholder="Type in Your message..."
           />
-          <button className="bg-primary font-semibold text-white w-full lg:h-10 h-14 rounded-[28px]">
+          <button 
+            onClick={() => {
+              handleSubmit(input)
+            }}
+          className="bg-primary font-semibold text-white w-full lg:h-10 h-14 rounded-[28px]">
             SEND
           </button>
+          { state.succeeded && <div className="text-green-600 flex justify-center  text-lg">Thanks for submitting!</div>}
         </div>
       </div>
       <Footer />

@@ -11,7 +11,7 @@ export const ImageDetailCard = ({
   description: string;
 }) => {
   return (
-    <div className="relative fit overflow-hidden group cursor-pointer">
+    <div className="relative fit overflow-hidden group cursor-pointer flex">
       <Image
         src={img}
         alt="Image"

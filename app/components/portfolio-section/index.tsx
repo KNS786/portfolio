@@ -2,58 +2,26 @@ import React from 'react';
 import { ProjectContainer } from './project-container';
 import { ImageDetailCard } from './image-detail-card';
 
-import image1 from '../../assets/portfolio-section/svg1.png';
-import image2 from '../../assets/portfolio-section/svg2.png';
-import image3 from '../../assets/portfolio-section/svg3.png';
-import image4 from '../../assets/portfolio-section/svg4.png';
-import image5 from '../../assets/portfolio-section/svg5.png';
-import image6 from '../../assets/portfolio-section/svg6.png';
-import image7 from '../../assets/portfolio-section/svg7.png';
-import image8 from '../../assets/portfolio-section/svg8.png';
-import image9 from '../../assets/portfolio-section/svg9.png';
+import image1 from '../../assets/portfolio-section/mobile-app-totalqsr.png';
+import image2 from '../../assets/portfolio-section/schedule-web-totalqsr.png';
+import image3 from '../../assets/portfolio-section/tutora-mobile-app.jpeg';
 
 const projectImages = [
   {
     img: image1,
-    title: 'Web Design',
-    description: 'Elegant Dark Website Design',
+    title: 'Hybrid Mobile App Development(Ionic React)',
+    description: 'Product Development for totalqsr platform',
   },
 
   {
     img: image2,
-    title: ' Brand Identity',
-    description: 'Ridged Beer can design',
+    title: 'Web app development',
+    description: 'Developed ui and functionality for web app screens schedule,timesheet & tips',
   },
   {
     img: image3,
-    title: 'Brand Identity',
-    description: 'Standup Brochure',
-  },
-  {
-    img: image7,
-    title: 'Web Design',
-    description: 'Landing Page for Mobile Devices',
-  },
-  {
-    img: image5,
-    title: 'Web Design',
-    description: 'Minimalist Landing Page',
-  },
-  {
-    img: image4,
-    title: 'Ui Design',
-    description: 'Black Fashion User Interface',
-  },
-
-  {
-    img: image8,
-    title: 'Brand Identity',
-    description: 'Box Package Brand Identity Mockup Template',
-  },
-  {
-    img: image6,
-    title: 'Ui Design',
-    description: 'News Media Interface',
+    title: 'React Native Mobile app development',
+    description: 'Learning platform for online teacher and students',
   },
 ];
 
@@ -61,7 +29,7 @@ export const PortFolioSection = () => {
   return (
     <div className="flex flex-col w-full">
       <ProjectContainer />
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {projectImages.map(({ img, title, description }) => (
           <ImageDetailCard key={title} {...{ img, title, description }} />
         ))}

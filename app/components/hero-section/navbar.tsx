@@ -18,7 +18,6 @@ export const NavBarSection = () => {
   const { innerWidth } = useHandleScreenWidth();
 
   const isMobileDevice = innerWidth < 760;
-  console.log("isMobileDevice :::",  isMobileDevice);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,8 +81,8 @@ export const NavBarSection = () => {
     { label: "Intro", href: "home-target" },
     { label: "About me", href: "about" },
     { label: "Portfolio", href: "portfolio" },
-    { label: "Clients", href: "clients" },
-    { label: "Stacks", href: "stacks" },
+    // { label: "Clients", href: "clients" },
+    // { label: "Stacks", href: "stacks" },
     { label: "Contacts", href: "contacts" },
   ];
   // const MotionLink = motion(Link);
@@ -98,7 +97,7 @@ export const NavBarSection = () => {
         ) : (
           <Image src={blueLogo} width={24} height={28} alt="logo" />
         )}
-        <span className={`${logoColor}`}>DanRay</span>
+        <span className={`${logoColor}`}>Navani Nayak</span>
       </div>
 
       <ul className="md:flex space-x-6 hidden">
@@ -135,7 +134,7 @@ export const NavBarSection = () => {
             ) : (
               <Image src={blueLogo} width={14} height={18} alt="logo" />
             )}
-            <span className={`${logoColor}`}>DanRay</span>
+            <span className={`${logoColor}`}>Navani Nayak</span>
           </div>
           <div className={clsx("flex flex-col items-center")}>
            <button onClick={() => {
